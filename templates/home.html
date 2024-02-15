@@ -7,14 +7,12 @@ CIS 218
 {% extends "base.html" %}
 
 {% block content %}
-
     {% for restaurant in restaurant_list %}
-        <div class="restaurant-entry">
-            <h2><a href="#"> {{ restaurant.name }}</a></h2>
+        <div class="restaurant">
+            <h2><a href="{% url "restaurant_detail" restaurant.pk %}"> {{ restaurant.name }}</a></h2>
             <!-- TODO: Add # of reviews and stars-->
             <p>Star Rating</p>
             <p>Reviews</p>
         </div>
     {% endfor %}
-
 {% endblock content %}

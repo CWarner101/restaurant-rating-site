@@ -7,6 +7,8 @@ CIS 218
 from django.db import models
 from django.urls import reverse
 
+# TODO: Add rating integer for reviews model
+
 class Restaurant(models.Model):
     """Restaurant model class"""
 
