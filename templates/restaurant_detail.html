@@ -11,5 +11,9 @@ CIS 218
     <h2>{{ restaurant.name }}</h2>
     <p>Star Rating</p>
     <p>Reviews<p>
+        {% for review in review_list  %}
+        <!-- Doesn't work, figure out later -->
+        <p><a href="{% url "review_detail" review.pk %}">{{ review.restaurant }}
+        {% endfor %}
     </div>
 {% endblock content %}

@@ -10,8 +10,9 @@ CIS 218
     </head>
     <body>
         <header>
-            <h1>Restaurant Ratings<h1>
+            <h1><a href="{% url 'home' %}">Restaurant Ratings</a><h1>
         </header>
+        <p><a href="{% url 'review_create' %}">Write A Review</a></p>
         <div>
             {% block content %}
             {% endblock content %}
