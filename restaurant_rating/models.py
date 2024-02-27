@@ -25,8 +25,32 @@ class Restaurant(models.Model):
         return reverse("restaurant_detail", kwargs={"pk": self.pk})
 
 
+
+
+
 class Review(models.Model):
     """Review model class"""
+
+    # ONE_STAR = 1
+    # TWO_STAR = 2
+    # THREE_STAR = 3
+    # FOUR_STAR = 4
+    # FIVE_STAR = 5
+    # STAR_RATING_CHOICES = [
+    #     (1, 'One'),
+    #     (2, 'Two'),
+    #     (3, 'Three'),
+    #     (4, 'Four'),
+    #     (5, 'Five'),
+    # ]
+    
+    class Stars(models.IntegerChoices):
+        """Star rating choices"""
+        ONE_STAR = 1
+        TWO_STAR = 2
+        THREE_STAR = 3
+        FOUR_STAR = 4
+        FIVE_STAR = 5
 
     restaurant = models.ForeignKey(
         Restaurant,
@@ -38,8 +62,10 @@ class Review(models.Model):
         on_delete=models.CASCADE,
         related_name="reviews"
     )
+
+
     body = models.TextField()
-    rating = models
+    rating = models.IntegerField(choices=Stars.choices, default=Stars.THREE_STAR)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
 
@@ -48,6 +74,6 @@ class Review(models.Model):
         return self.body
     
     def get_absolute_url(self):
-        """get the absolute URL for a single restaurant"""
+        """Get the absolute URL for a single restaurant"""
         return reverse("review_detail", kwargs={"pk": self.pk})
 

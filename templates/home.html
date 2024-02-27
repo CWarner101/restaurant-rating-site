@@ -7,12 +7,15 @@ CIS 218
 {% extends "base.html" %}
 
 {% block content %}
-    {% for restaurant in restaurant_list %}
-        <div class="restaurant">
-            <h2><a href="{% url "restaurant_detail" restaurant.pk %}"> {{ restaurant.name }}</a></h2>
-            <!-- TODO: Add # of reviews and stars-->
-            <p>Star Rating</p>
-            <p>Reviews</p>
-        </div>
-    {% endfor %}
+<div class="mx-4">
+    <header class="py-3 mb-3 fs-1 border-bottom">All Restaruants</header>
+        {% for restaurant in restaurant_list %}
+            <div class="restaurant border-bottom">
+                <p class="fs-2"><a href="{% url "restaurant_detail" restaurant.pk %}"> {{ restaurant.name }}</a></p>
+                <!-- TODO: Add # of reviews and stars-->
+                <p>Star Rating</p>
+                <p>Reviews</p>
+            </div>
+        {% endfor %}
+</div>
 {% endblock content %}

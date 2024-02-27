@@ -10,10 +10,11 @@ CIS 218
     <div class="restaurant">
     <h2>{{ restaurant.name }}</h2>
     <p>Star Rating</p>
+    <p><a href="{% url 'review_create' %}">Write A Review</a></p>
     <p>Reviews<p>
         {% for review in review_list  %}
         <!-- Doesn't work, figure out later -->
-        <p><a href="{% url "review_detail" review.pk %}">{{ review.restaurant }}
+        <p><a href="{% url "review_detail" review.pk %}">{{ review.restaurant }}</a></p>
         {% endfor %}
     </div>
 {% endblock content %}
