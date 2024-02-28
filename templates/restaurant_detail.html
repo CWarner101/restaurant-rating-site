@@ -7,14 +7,38 @@ CIS 218
 {% extends "base.html" %}
 
 {% block content %}
-    <div class="restaurant">
-    <h2>{{ restaurant.name }}</h2>
-    <p>Star Rating</p>
-    <p><a href="{% url 'review_create' %}">Write A Review</a></p>
-    <p>Reviews<p>
-        {% for review in review_list  %}
-        <!-- Doesn't work, figure out later -->
-        <p><a href="{% url "review_detail" review.pk %}">{{ review.restaurant }}</a></p>
-        {% endfor %}
+<div class="mx-5">
+    <div class="border-bottom mb-4 ">
+        <div class="row">
+            <div class="col-9">
+                <p class="fs-1">{{ restaurant.name }}</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6">
+                <p>&#9733; (insert avg stars) out of 5</p>
+            </div>
+            <div class="col-md-2 ms-auto ps-auto">
+                <a href="{% url "review_create" %}"><button type="button" class="btn btn-primary">+ Write A Review</button></a>
+            </div>
+        </div>
+        <div class="row">
+            <p>&#128210; {{restaurant.reviews.all.count}} Reviews</p>
+        </div>
     </div>
+    {% if restaurant.reviews.all.count == 0 %}
+        <p>There are no reviews yet</p>
+    {% else %}
+        {% for review in restaurant.reviews.all %}
+        <div class="card my-1 py-2">
+            <div class="card-body">
+                <p>{{ review.user }} - &#9733; {{ review.rating}}-Star - Created {{ review.created }}</p>
+                <p>{{ review.body }}</p>
+                <a href="{% url "review_detail" review.pk %}"><button type="button" class="btn btn-secondary">Read Full Review</button></a>
+            </div>
+        </div>
+        {% endfor %}
+    {% endif %}
+</div>
 {% endblock content %}
+

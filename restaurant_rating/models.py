@@ -7,7 +7,6 @@ CIS 218
 from django.db import models
 from django.urls import reverse
 
-# TODO: Add rating integer for reviews model
 
 class Restaurant(models.Model):
     """Restaurant model class"""
@@ -26,24 +25,10 @@ class Restaurant(models.Model):
 
 
 
-
-
 class Review(models.Model):
     """Review model class"""
 
-    # ONE_STAR = 1
-    # TWO_STAR = 2
-    # THREE_STAR = 3
-    # FOUR_STAR = 4
-    # FIVE_STAR = 5
-    # STAR_RATING_CHOICES = [
-    #     (1, 'One'),
-    #     (2, 'Two'),
-    #     (3, 'Three'),
-    #     (4, 'Four'),
-    #     (5, 'Five'),
-    # ]
-    
+
     class Stars(models.IntegerChoices):
         """Star rating choices"""
         ONE_STAR = 1
@@ -51,6 +36,7 @@ class Review(models.Model):
         THREE_STAR = 3
         FOUR_STAR = 4
         FIVE_STAR = 5
+
 
     restaurant = models.ForeignKey(
         Restaurant,
