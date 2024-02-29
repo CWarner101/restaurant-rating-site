@@ -32,7 +32,7 @@ class ReviewCreateView(CreateView):
     """Review Create View"""
     model = Review
     template_name = "review_create.html"
-    fields = ["restaurant", "user", "body"]
+    fields = ["restaurant", "user", "body", "rating"]
 
     def get_initial(self):
         """Get initial form data"""
@@ -47,11 +47,11 @@ class ReviewUpdateView(UpdateView):
     """Review Update View"""
     model = Review
     template_name = "review_update.html"
-    fields = ["restaurant", "body"]
+    fields = ["restaurant", "body", "rating"]
 
 
 class ReviewDeleteView(DeleteView):
     """Review Delete View"""
     model = Review
-    template_name = "review_delete"
+    template_name = "review_delete.html"
     success_url = reverse_lazy("home")

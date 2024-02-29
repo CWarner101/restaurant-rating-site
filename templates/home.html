@@ -8,17 +8,17 @@ CIS 218
 
 {% block content %}
 <div class="mx-4">
-    <header class="py-3 mb-3 fs-1 border-bottom">All Restaruants</header>
+    <header class="py-3 mb-3 fs-1 fw-bold border-bottom">All Restaruants</header>
         {% for restaurant in restaurant_list %}
             <div class="restaurant border-bottom">
-                <p class="fs-2"><a href="{% url "restaurant_detail" restaurant.pk %}">{{ restaurant.name }}</a></p>
+                <p class="fs-2 fw-bolder">
+                    <a href="{% url "restaurant_detail" restaurant.pk %}">{{ restaurant.name }}</a>
+                </p>
                 <!-- TODO: Add avg stars-->
                 {% if restaurant.reviews.all.count == 0 %}
-                    <p>&#9733; No ratings yet</p>
                     <p>No reviews yet</p>
                 {% else %}
-                    <p>&#9733; (insert avg stars) out of 5</p>
-                    <p>{{restaurant.reviews.all.count}} Reviews</p>
+                    <p>{{ restaurant.reviews.all.count }} Reviews</p>
                 {% endif %}
             </div>
         {% endfor %}

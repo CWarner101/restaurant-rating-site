@@ -1,3 +1,9 @@
+"""
+Connor Warner
+CIS 218
+2/28/24
+"""
+
 from django.contrib.auth.forms import UserCreationForm
 from django.urls import reverse_lazy
 from django.views.generic import CreateView

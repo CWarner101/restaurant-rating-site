@@ -7,10 +7,12 @@ CIS 218
 {% extends "base.html" %}
 
 {% block content %}
-<div class="review mx-5">
+<div class="review mx-4">
     <header class="d-flex flex-wrap mt-3">
-        <a href="{% url "review_detail" review.pk %}" class="align-self-center"><button type="button" class="btn btn-secondary px-2 py-0 fs-4">&#8592;</button></a>
-        <div class="fs-1 ms-3">{{ review.restaurant }} - Edit Review</div>
+        <a href="{% url "review_detail" review.pk %}" class="align-self-center">
+            <button type="button" class="btn btn-secondary px-2 py-0 fs-4">&#8592;</button>
+        </a>
+        <div class="fs-1 fw-bold ms-3">{{ review.restaurant }} - Edit Review</div>
     </header>
     <form action="" method="post">
         {% csrf_token %}

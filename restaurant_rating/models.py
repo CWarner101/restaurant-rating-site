@@ -62,4 +62,4 @@ class Review(models.Model):
     def get_absolute_url(self):
         """Get the absolute URL for a single restaurant"""
         return reverse("review_detail", kwargs={"pk": self.pk})
-
+    

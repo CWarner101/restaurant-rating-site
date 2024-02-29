@@ -7,17 +7,25 @@ CIS 218
 {% extends "base.html" %}
 
 {% block content %}
-<div class="review mx-5">
+<div class="review mx-4">
     <header class="d-flex flex-wrap mt-3">
-        <a href="{% url "restaurant_detail" review.pk %}" class="align-self-center"><button type="button" class="btn btn-secondary px-2 py-0 fs-4">&#8592;</button></a>
-        <div class="fs-1 ms-3">{{ review.restaurant }} - Review Detail</div>
+        <a href="{% url "restaurant_detail" review.restaurant.pk %}" class="align-self-center">
+            <button type="button" class="btn btn-secondary px-2 py-0 fs-4">&#8592;</button>
+        </a>
+        <div class="fs-1 fw-bold ms-3">{{ review.restaurant }} - Review Detail</div>
     </header>
-    <div class="review my-1 py-2"><div class="card">
-        <div class="card-body">
-            <p>{{ review.user }} - &#9733; {{ review.rating}}-Star - Created {{ review.created }}</p>
-            <p>{{ review.body }}</p>
-            <a href="{% url "review_update" review.pk %}"><button type="button" class="btn btn-success px-2 me-2">&#9998; Edit Review</button></a>
-            <a href="{% url "review_delete" review.pk %}"><button type="button" class="btn btn-danger px-2">&#x2613; Delete Review</button></a>
+    <div class="review my-1 py-2">
+        <div class="card">
+            <div class="card-body">
+                <p>{{ review.user }} - &#9733; {{ review.rating}}-Star - Created {{ review.created }}</p>
+                <p>{{ review.body }}</p>
+                <a href="{% url "review_update" review.pk %}" class="text-decoration-none">
+                    <button type="button" class="btn btn-success px-2 me-2">&#9998; Edit Review</button>
+                </a>
+                <a href="{% url "review_delete" review.pk %}" class="text-decoration-none">
+                    <button type="button" class="btn btn-danger px-2">&#x2613; Delete Review</button>
+                </a>
+            </div>
         </div>
     </div>
 </div>
