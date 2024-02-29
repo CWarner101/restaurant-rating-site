@@ -22,7 +22,7 @@ class RestaurantsTests(TestCase):
         """Test restaurant model"""
         self.assertEqual(self.restaurant.name, "Test Restaurant")
         self.assertEqual(str(self.restaurant), "Test Restaurant")
-        self.assertEqual(self.restaurant.get_absolute_url(), "/restaurant/1")
+        self.assertEqual(self.restaurant.get_absolute_url(), "/restaurant/1/")
 
     def test_restaurant_url_exists_at_correct_location_listview(self):
         """Test url exists at correct location list view"""
@@ -77,6 +77,7 @@ class ReviewTests(TestCase):
         self.assertEqual(self.review.restaurant.name, "Test Restaurant")
         self.assertEqual(str(self.review), "Test review")
         self.assertEqual(self.review.rating, 3)
+        self.assertEqual(self.review.get_absolute_url(), "/review/1/")
 
 
     def test_review_url_exists_at_correct_location_detailview(self):
@@ -109,7 +110,7 @@ class ReviewTests(TestCase):
 
     def test_review_url_exists_at_correct_location_updateview(self):
         """Test url exists at correct location update view"""
-        response = self.client.get("/review/edit/")
+        response = self.client.get("/review/1/update/")
         self.assertEqual(response.status_code, 200 )
 
     def test_review_createview(self):
@@ -122,7 +123,7 @@ class ReviewTests(TestCase):
     
     def test_review_url_exists_at_correct_location_deleteview(self):
         """Test url exists at correct location delete view"""
-        response = self.client.get("/review/delete/")
+        response = self.client.get("/review/1/delete/")
         self.assertEqual(response.status_code, 200 )
 
     def test_review_deleteview(self):
