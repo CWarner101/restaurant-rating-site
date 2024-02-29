@@ -31,7 +31,6 @@ class RestaurantsTests(TestCase):
 
     def test_url_exists_at_correct_location_detailview(self):
         """Test url exists at correct location detail view"""
-        #TODO: Ask why this test isn't working, but the first one is.
         response = self.client.get("/restaurant/1/")
         self.assertEqual(response.status_code, 200)
 
