@@ -25,7 +25,7 @@ Tests for the models check that the behaviors for the models all behave properly
 The site includes the required files and settings for publishing the site using Heroku.
 
 
-### Database ERD
+## Database ERD
 ![Database Entity Relationship Diagram](https://barnesbrothers.ddns.net/cis218/assignment_images/assignment_3/cis218_assignment_3_erd.png "Databse Entity Relationship Diagram")
 
 
